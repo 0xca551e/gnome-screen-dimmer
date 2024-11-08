@@ -2,11 +2,13 @@ import { denoPlugins } from "@luca/esbuild-deno-loader";
 import { debounce } from "@std/async/debounce";
 import * as esbuild from "npm:esbuild@0.20.2";
 
+const outfile = "./gnome-screen-dimmer.js";
+
 let process: Deno.ChildProcess | null = null;
 const command = new Deno.Command("host-spawn", {
   args: [
     "gjs",
-    "./gnome-gamma-tool-gui.js",
+    outfile,
   ],
   stdin: "inherit",
   stdout: "inherit",
@@ -24,7 +26,7 @@ const rebuild = debounce(async function () {
   const _result = await esbuild.build({
     plugins: [...denoPlugins()],
     entryPoints: ["./src/main.ts"],
-    outfile: "./gnome-gamma-tool-gui.js",
+    outfile,
     bundle: true,
     format: "esm",
   });

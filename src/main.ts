@@ -46,7 +46,7 @@ const app = new Gtk.Application();
 app.connect("activate", (app) => {
   const window = new Gtk.ApplicationWindow({
     application: app,
-    title: "gnome-gamma-tool-gui",
+    title: "Screen Dimmer",
   });
 
   const formBox = new Gtk.Box({
