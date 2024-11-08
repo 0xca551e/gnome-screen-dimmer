@@ -1,0 +1,3 @@
+[submodule "gnome-gamma-tool"]
+	path = gnome-gamma-tool
+	url = https://github.com/zb3/gnome-gamma-tool
